@@ -11,7 +11,7 @@
     "require": {
         "php": "^7.2",
         "laravel/framework": "^5.8",
-        "chocofamilyme/laravel-pathcorrelation": "*"
+        "chocofamilyme/laravel-pathcorrelation": "dev-kamenev.n.init"
     },
     "license": [
         "BSD-3-Clause"
@@ -34,5 +34,11 @@
                 "Chocofamily\\Profiler\\ProfilerServiceProvider"
             ]
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:chocofamilyme/laravel-pathcorrelation.git"
+        }
+    ]
 }
