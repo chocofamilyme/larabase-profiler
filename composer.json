@@ -25,7 +25,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Chocofamily\\Profiler": "src/"
+            "Chocofamily\\Profiler\\": "src/"
         }
     },
     "extra": {
