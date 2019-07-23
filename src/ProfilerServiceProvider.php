@@ -22,7 +22,7 @@ class ProfilerServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom( __DIR__.'/config/config.php', 'profiler');
+        $this->mergeConfigFrom($this->getPackageConfigPath(), 'profiler');
     }
 
     /**
