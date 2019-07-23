@@ -61,7 +61,7 @@ class ProfilerServiceProvider extends BaseServiceProvider
      */
     protected function getPackageConfigPath()
     {
-        return __DIR__ . '/../config/profiler.php';
+        return __DIR__ . '/config/profiler.php';
     }
 
     /**
