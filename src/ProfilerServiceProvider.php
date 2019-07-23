@@ -33,7 +33,7 @@ class ProfilerServiceProvider extends BaseServiceProvider
         $this->publishConfig();
 
         /** @var \Illuminate\Config\Repository $config */
-        $config = config('profiler');
+        $config = $this->app['config'];
 
         $adapter = 'Chocofamily\Profiler\\'.$config->get('drivers.' . $config->get('default') . '.adapter');
         $this->app->bind($adapter, function ($app, $config, $adapter) {
