@@ -5,7 +5,6 @@ namespace Chocofamily\Profiler\Middleware;
 use Closure;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\Events\StatementPrepared;
 use Chocofamily\Profiler\ProfilerInterface as ProfilerInterface;
@@ -72,7 +71,7 @@ class DbProfiler
      */
     private function isEnabled(): bool
     {
-        return (bool) config('profiler.enable-db-profiler');
+        return ((bool) config('profiler.enable-db-profiler') && (bool) config('profiler.enable'));
     }
 
     /**

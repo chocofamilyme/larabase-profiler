@@ -1,6 +1,7 @@
 <?php
 return [
-    'default' => env('PROFILER_DRIVER', 'file'),
+    'driver' => env('PROFILER_DRIVER', 'file'),
+    'enable' => true,
     'enable-db-profiler' => true,
     'drivers' => [
         'pinba' => [
