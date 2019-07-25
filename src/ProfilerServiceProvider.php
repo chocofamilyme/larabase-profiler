@@ -5,6 +5,8 @@ namespace Chocofamily\Profiler;
 use Chocofamily\Pathcorrelation\Http\CorrelationId;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use Chocofamily\Profiler\Middleware\DbProfiler as DbProfiler;
+use Chocofamily\Profiler\ProfilerInterface as ProfilerInterface;
 
 class ProfilerServiceProvider extends BaseServiceProvider
 {
@@ -33,15 +35,18 @@ class ProfilerServiceProvider extends BaseServiceProvider
         $this->publishConfig();
 
         /** @var \Illuminate\Config\Repository $config */
-        $config = $this->app['config'];
 
-        $adapter = 'Chocofamily\Profiler\\'.$config->get('drivers.' . $config->get('default') . '.adapter');
-        $this->app->bind($adapter, function ($app, $config, $adapter) {
-            $host   = $config->get('drivers.' . $config->get('default') . '.domain');
-            $server = $config->get('drivers.' . $config->get('default') . '.server');
+        $this->app->bind(ProfilerInterface::class, function ($app) {
+            $config = $this->app['config'];
+
+            $adapter = 'Chocofamily\Profiler\\'.$config->get('profiler.drivers.' . $config->get('profiler.default') . '.adapter');
+            $host   = $config->get('profiler.drivers.' . $config->get('profiler.default') . '.domain');
+            $server = $config->get('profiler.drivers.' . $config->get('profiler.default') . '.server');
 
             return new $adapter(['host' => $host, 'server' => $server]);
         });
+
+        $this->registerMiddleware(DbProfiler::class);
     }
 
     /**

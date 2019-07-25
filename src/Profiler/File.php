@@ -32,6 +32,7 @@ class File implements ProfilerInterface
         $currentTags                         = $this->incr++;
         $this->timers[$currentTags]['tags']  = $tags;
         $this->timers[$currentTags]['start'] = microtime(true);
+
         return $currentTags;
     }
 
