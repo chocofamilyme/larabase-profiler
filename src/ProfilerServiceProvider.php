@@ -40,7 +40,7 @@ class ProfilerServiceProvider extends BaseServiceProvider
         $this->app->bind(ProfilerInterface::class, function ($app) {
             $config = $this->app['config'];
 
-            $driver = $config->get('profiler.driver');
+            $driver = strtolower($config->get('profiler.driver'));
             $adapter = 'Chocofamily\Profiler\\'.$config->get('profiler.drivers.' . $driver . '.adapter');
             $host   = $config->get('profiler.drivers.' . $driver . '.domain');
             $server = $config->get('profiler.drivers.' . $driver . '.server');
