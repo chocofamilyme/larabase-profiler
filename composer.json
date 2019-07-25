@@ -1,0 +1,44 @@
+{
+    "name": "chocofamilyme/laravel-profiler",
+    "description": "Профилирование запросов",
+    "keywords": [
+        "profiler",
+        "db",
+        "request",
+        "laravel"
+    ],
+    "type": "library",
+    "require": {
+        "php": "^7.2",
+        "laravel/framework": "^5.8",
+        "chocofamilyme/laravel-pathcorrelation": "dev-kamenev.n.init"
+    },
+    "license": [
+        "BSD-3-Clause"
+    ],
+    "homepage": "https://github.com/chocofamilyme/laravel-profiler",
+    "authors": [
+        {
+            "name": "IT Chocolife.me",
+            "homepage": "https://chocolife.me/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Chocofamily\\Profiler\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Chocofamily\\Profiler\\ProfilerServiceProvider"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:chocofamilyme/laravel-pathcorrelation.git"
+        }
+    ]
+}
